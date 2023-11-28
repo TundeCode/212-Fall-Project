@@ -7,18 +7,21 @@ Ethan Moreta, Tunde Fakalujo, Marvens Sainterlien, Clinton Ijifisoye
 
 ### Overview:
 
+
+
 ### Dependencies
 
+todo
 
 ### Usage
 
 
 ### Work Split
-|Team Member| Work Done |
+|Team Member|     Work Done      |
 |--|--|
-| E. Moreta |  |
-| C. Ijifisoye |  |
-| M. Sainterlien |  |
-| T. Fakalujo |  |
+| E. Moreta |                    |
+| C. Ijifisoye |                 |
+| M. Sainterlien |               |
+| T. Fakalujo |                  |
 |  |  |
 
