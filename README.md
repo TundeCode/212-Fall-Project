@@ -13,11 +13,11 @@ Dependencies
 Usage
 
 
-Work done
-|  |  |
-|--|--|
-|  |  |
-|  |  |
-|  |  |
+Work Split
+|Team Member| Work Done |
+| E. Moreta |  |
+| C. Ijifisoye |  |
+| M. Sainterlien |  |
+| T. Fakalujo |  |
 |  |  |
 
