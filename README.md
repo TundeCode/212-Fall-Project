@@ -1,4 +1,4 @@
-# Sparse Matrices with Linked Lists
+# Trie
 URI CSC 212 Spring 2023 Term Project
 
 Group Members:
