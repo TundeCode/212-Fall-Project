@@ -20,7 +20,7 @@ todo
 ### Work Split
 |Team Member|     Work Done      |
 |--|--|
-| E. Moreta |                    |
+| E. Moreta |Contributed towards project report and code                 |
 | C. Ijifisoye |                 |
 | M. Sainterlien |               |
 | T. Fakalujo |                  |
