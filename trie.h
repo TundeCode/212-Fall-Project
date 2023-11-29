@@ -10,6 +10,7 @@ class TrieNode{
 public:
 int count;
 std::unordered_map<char, TrieNode*> children;
+std::vector<std::string> contacts; //stores in node
 
 TrieNode(){
     count=0;
@@ -22,14 +23,15 @@ TrieNode(){
 
 class Trie{
 private:
-
  TrieNode* root;
-    public:
+   
+ public:
     Trie();
     ~Trie();
     void insert(const std::string& word);
       std::pair<bool, int> search(const std::string& word);
-    void generateDotFile(const std::string& filename)
+    void generateDotFile(const std::string& filename);
+    void displayContacts(const std::string& prefix);
 }
 
 
