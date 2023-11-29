@@ -20,6 +20,7 @@ todo
 ### Links
 ### Request Access so I can add you
 https://docs.google.com/document/d/1HocRcjlAmbrf1HJ1uC-Mum5ARt690aI8Xp_JsFwZ6HQ/edit?usp=sharing
+
 https://docs.google.com/presentation/d/1Qn201u60Z8YfK2d-t01gzrGH3Ze9VK7bGdjCbWLtI4w/edit?usp=sharing
 
 ### Work Split
