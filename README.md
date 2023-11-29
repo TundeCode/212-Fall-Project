@@ -7,7 +7,7 @@ Ethan Moreta, Tunde Fakalujo, Marvens Sainterlien, Clinton Ijifisoye
 
 ### Overview:
 
-todo
+A trie is a multiway tree data structure used for storing strings over an alphabet. It is used to store alrge amount of strings. The pattern matching can be done efficiently using tries. The trie shows words like allot, alone, ant, and, are, bat, bad. The idea all strings shring common prefix should come from a common node. The tries are used in spell checking proggrams.
 
 ### Dependencies
 
