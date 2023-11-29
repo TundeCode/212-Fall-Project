@@ -7,7 +7,7 @@ Ethan Moreta, Tunde Fakalujo, Marvens Sainterlien, Clinton Ijifisoye
 
 ### Overview:
 
-
+todo
 
 ### Dependencies
 
@@ -15,6 +15,7 @@ todo
 
 ### Usage
 
+todo
 
 ### Work Split
 |Team Member|     Work Done      |
@@ -23,5 +24,3 @@ todo
 | C. Ijifisoye |                 |
 | M. Sainterlien |               |
 | T. Fakalujo |                  |
-|  |  |
-
