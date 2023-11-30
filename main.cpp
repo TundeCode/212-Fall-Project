@@ -25,6 +25,7 @@ int main(int argc, char*argv[]){
         list.insert(word);
     }
 
-list.printList();
+list.insert("Alex");
+list.displayContacts("Al");
 ifs.close();
 }
