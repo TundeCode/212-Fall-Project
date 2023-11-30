@@ -11,14 +11,14 @@ Trie::~Trie(){}
 
 // insert 
 
-void Trie::insert(conost std::string& word){
+void Trie::insert(const std::string& word){
       TrieNode* current=root;
 
       for(char ch : word){
-        if (current->chuldren.find(ch)==current->children.end()){
+        if (current->children.find(ch)==current->children.end()){
             current->children[ch]=new TrieNode();
         }
-        current=current->childre[ch];
+        current=current->children[ch];
       }
       current->count++;
 }
@@ -34,4 +34,23 @@ std::pair<bool, int> Trie::search(const std::string& word) {
         current = current->children[ch];
     }
     return std::make_pair(true, current->count);
+}
+
+
+
+// print list
+void Trie::printList(){
+    print(root, "");
+}
+// dot file
+
+void Trie::generateDotFile(const std::string& filename){
+    std::ofstream ofs(filename);
+    ofs << "digraph: {"  << std::endl;
+
+
+
+    ofs << "}" << std::endl;
+
+    ofs.close();
 }
