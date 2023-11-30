@@ -43,9 +43,9 @@ void Trie::displayContacts(const std::string& prefix){
         current =current->children[ch];
     }
     //SHows all contacts under The prefix example if  A Alex,Alejodro,Alan would appear
-    // for(const std::string& contact: current->contacts){
-    //     std::cout << contact <<std::endl;
-    // }
+     for(const std::string& contact: current->contacts){
+         std::cout << contact <<std::endl;
+     }
 
     displayContactsHelper(current,prefix);
 }
