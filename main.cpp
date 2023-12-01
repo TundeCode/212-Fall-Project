@@ -14,18 +14,24 @@ int main(int argc, char*argv[]){
 
     std::string line;
 
+
     // Get the names to be inserted
-    std::getline(ifs, line);
+while(std::getline(ifs, line)){
     std::stringstream ss(line);
 
-    std::string word;
+    std::string firstName, lastName, phoneNumber;
 
 
-    while(ss >> word){
-        list.insert(word);
+    while(ss>>firstName>>lastName>>phoneNumber){
+        
+
+        list.insert(firstName,lastName,phoneNumber);
     }
+}
+std::string input;
+std::cout << "Enter Name: ";
+std::cin >> input;
 
-list.insert("Alex");
-list.displayContacts("Al");
+list.displayContacts(input);
 ifs.close();
 }
