@@ -22,7 +22,7 @@ while(std::getline(ifs, line)){
     std::string firstName, lastName, phoneNumber;
 
 
-    while(ss>>firstName>>lastName>>phoneNumber){
+    while(std::getline(ss,firstName,' ')&& std::getline(ss,lastName,'-')&& ss>> phoneNumber){
         
 
         list.insert(firstName,lastName,phoneNumber);
