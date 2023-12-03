@@ -1,37 +1,53 @@
 #include "trie.h"
 
-
-
-int main(int argc, char*argv[]){
-    std::ifstream ifs(argv[1]);
-    if (!ifs.is_open()) {
-    std::cerr << "Error opening file: " << argv[1] << std::endl;
-    return 1;
-}
-
-
+int main(int argc, char* argv[]) {
     Trie list;
 
-    std::string line;
+    if (argc > 1) {
+        std::ifstream ifs(argv[1]);
+        if (!ifs.is_open()) {
+            return 1;
+        }
 
+        std::string line;
+        while (std::getline(ifs, line)) {
+            std::stringstream ss(line);
+            std::string firstName, lastName, phoneNumber;
 
-    // Get the names to be inserted
-while(std::getline(ifs, line)){
-    std::stringstream ss(line);
-
-    std::string firstName, lastName, phoneNumber;
-
-
-    while(std::getline(ss,firstName,' ')&& std::getline(ss,lastName,'-')&& ss>> phoneNumber){
-        
-
-        list.insert(firstName,lastName,phoneNumber);
+            if (std::getline(ss, firstName, ' ') && std::getline(ss, lastName, '-') && ss >> phoneNumber) {
+                list.insert(firstName, lastName, phoneNumber);
+            }
+        }
+        ifs.close();
     }
-}
-std::string input;
-std::cout << "Enter Name: ";
-std::cin >> input;
 
-list.displayContacts(input);
-ifs.close();
+    bool running = true;
+    while (running) {
+        int choice;
+        std::cout << "1. Add Contact" << std::endl;
+        std::cout << "2. Search Contacts" << std::endl;;
+        std::cout << "3. Exit" << std::endl;;
+        std::cout << "Choose One Option above:" << std::endl;;
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                list.addContact();
+                break;
+            case 2: {
+                std::string input;
+                std::cout << "Enter Name or Letter: ";
+                std::cin >> input;
+                list.displayContacts(input);
+                break;
+            }
+            case 3:
+                running = false;
+                break;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;;
+        }
+    }
+
+    return 0;
 }
