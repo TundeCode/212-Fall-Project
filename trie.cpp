@@ -25,6 +25,21 @@ std::string Name= firstName+" " +lastName;
       
 }
 
+  void Trie::addContact() {
+        std::string firstName, lastName, phoneNumber;
+
+        std::cout << "Enter first name: ";
+        std::cin >> firstName;
+
+        std::cout << "Enter last name: ";
+        std::cin >> lastName;
+
+        std::cout << "Enter phone number: ";
+        std::cin >> phoneNumber;
+
+        insert(firstName, lastName, phoneNumber);
+        std::cout << "Contact added successfully.\n";
+    }
 
 // display/search
 
@@ -41,7 +56,10 @@ void Trie::displayContacts(const std::string& prefix){
         }
         current =current->children[ch];
     }
-   
+    //SHows all contacts under The prefix example if  A Alex,Alejodro,Alan would appear
+    // for(const std::string& contact: current->contacts){
+    //     std::cout << contact <<std::endl;
+    // }
 
     displayContactsHelper(current,prefix);
 }
