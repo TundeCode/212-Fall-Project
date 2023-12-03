@@ -79,6 +79,7 @@ private:
     void insert(const std::string& firstName, const std::string& lastName, const std::string& phoneNumber);
     void generateDotFile(const std::string& filename);
     void displayContacts(const std::string& prefix);
+    void addContact();
 };
 
 
