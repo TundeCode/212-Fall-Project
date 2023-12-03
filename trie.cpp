@@ -7,6 +7,14 @@ Trie::Trie() {
 
 // destructor
 Trie::~Trie(){}
+//release dynamically allocated memory
+void Trie::deleteNode(TrieNode* node){
+    for (auto& entry:node ->children){
+        deleteNode(entry.second);
+        entry.second=nullptr;
+    }
+    delete node;
+}
 
 
 // insert 
@@ -21,7 +29,8 @@ std::string Name= firstName+" " +lastName;
         current=current->children[ch];
       }
       current->count++;
-      contacts[Name]=contactInfo(firstName,lastName,phoneNumber);
+      current->contact=contactInfo(firstName,lastName,phoneNumber);
+      
       
 }
 
@@ -38,8 +47,13 @@ std::string Name= firstName+" " +lastName;
         std::cin >> phoneNumber;
 
         insert(firstName, lastName, phoneNumber);
-        std::cout << "Contact added successfully.\n";
-    }
+
+    if (!firstName.empty() && !lastName.empty()&& !phoneNumber.empty()){
+        std::cout << "Contact added successfully.\n";}
+        else{
+            std::cout << "Invalid input. Please provide all necessary information. \n";}
+        }
+    
 
 // display/search
 
@@ -56,10 +70,19 @@ void Trie::displayContacts(const std::string& prefix){
         }
         current =current->children[ch];
     }
-    //SHows all contacts under The prefix example if  A Alex,Alejodro,Alan would appear
-    // for(const std::string& contact: current->contacts){
-    //     std::cout << contact <<std::endl;
-    // }
 
+    //SHows all contacts under The prefix example if  A Alex,Alejodro,Alan would appear
+   
     displayContactsHelper(current,prefix);
 }
+
+
+    void Trie::generateDotFile(const std::string& filename){
+
+
+std::ofstream ofs(filename);
+ofs << "digraph G {" << std::endl;
+
+ofs << "}" << std:: endl;
+ofs.close();
+    }
