@@ -57,6 +57,7 @@ private:
         const contactInfo& contactInfo=node->contact;    
         std::cout << contactInfo.firstName << " " <<  contactInfo.lastName<< std::endl;
         std::cout << contactInfo.phoneNumber << std::endl;
+        std::cout<<"Count: " << node->count<<std::endl; //display count
         std::cout << std::endl;
     }
 
