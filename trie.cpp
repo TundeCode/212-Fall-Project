@@ -5,24 +5,16 @@ Trie::Trie() {
         root = new TrieNode();
     }
 
-// Destructor
-Trie::~Trie() {
-    // Call deleteNode on the root to delete all nodes in the trie
-    deleteNode(root);
-}
-
-// release dynamically allocated memory
+// destructor
+Trie::~Trie(){}
+//release dynamically allocated memory
 void Trie::deleteNode(TrieNode* node){
-    if (node == nullptr) {
-        return; 
+    for (auto& entry:node ->children){
+        deleteNode(entry.second);
+        entry.second=nullptr;
     }
-    for (auto& entry: node->children){
-        deleteNode(entry.second); // Recursive call to delete child nodes
-        entry.second = nullptr;  
-    }
-    delete node; // Delete the current node
+    delete node;
 }
-
 
 
 // insert 
