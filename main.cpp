@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
         std::cout << "3. Exit" << std::endl;;
         std::cout << "Choose One Option above:" << std::endl;;
         while(!(std::cin >> choice)|| !isdigit(choice)){
-            std::cout << "Invalid input, Please try again:"<< std::endl;
+            std::cout << "Invalid choice, Please try again:"<< std::endl;
             std::cin.clear(); // clear error flag
             std::cin.ignore(INT_MAX, '\n');
         }
