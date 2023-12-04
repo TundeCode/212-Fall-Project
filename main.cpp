@@ -1,5 +1,6 @@
 #include "trie.h"
-
+#include <climits>
+#include <cctype>
 int main(int argc, char* argv[]) {
     Trie list;
 
@@ -23,25 +24,29 @@ int main(int argc, char* argv[]) {
 
     bool running = true;
     while (running) {
-        int choice;
+        char choice;
         std::cout << "1. Add Contact" << std::endl;
         std::cout << "2. Search Contacts" << std::endl;;
         std::cout << "3. Exit" << std::endl;;
         std::cout << "Choose One Option above:" << std::endl;;
-        std::cin >> choice;
+        while(!(std::cin >> choice)|| !isdigit(choice)){
+            std::cout << "Invalid input, Please try again:"<< std::endl;
+            std::cin.clear(); // clear error flag
+            std::cin.ignore(INT_MAX, '\n');
+        }
 
         switch (choice) {
-            case 1:
+            case '1':
                 list.addContact();
                 break;
-            case 2: {
+            case '2': {
                 std::string input;
                 std::cout << "Enter Name or Letter: ";
                 std::cin >> input;
                 list.displayContacts(input);
                 break;
             }
-            case 3:
+            case '3':
                 running = false;
                 break;
             default:
