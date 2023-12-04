@@ -47,7 +47,7 @@ TrieNode(){
 class Trie{
 private:
  TrieNode* root;
-
+void deleteContactHelper(TrieNode* node, const std::string& contactName);
    void displayContactsHelper(TrieNode* node, const std::string& prefix) {
 
    
