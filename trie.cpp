@@ -112,7 +112,7 @@ void Trie::deleteContact(const std::string& command) {
 
     if (deleteCmd == "delete") {
         deleteContactHelper(root, firstName + " " + lastName);
-        contacts.erase(firstName + " " + lastName);
+        //contacts.erase(firstName + " " + lastName);
     } else {
         std::cout << "Invalid delete command" << std::endl;
     }
