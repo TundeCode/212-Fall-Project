@@ -47,7 +47,7 @@ TrieNode(){
 class Trie{
 private:
  TrieNode* root;
-
+int nodeCount;
    void displayContactsHelper(TrieNode* node, const std::string& prefix) {
 
    
@@ -74,6 +74,44 @@ private:
         displayContactsHelper(child, childPrefix);
     }
     
+}
+
+
+void generateDotFileHelper(TrieNode*node, std::ofstream& ofs, const std::string& parentLabel=""){
+    if (node==nullptr){
+        return;
+    }
+
+ std::string currentLabel;
+
+if (!node->contact.firstName.empty()||!node->contact.lastName.empty()||!node->contact.phoneNumber.empty()){
+    
+        // create a unique label label for the current node
+    currentLabel= "node_"+std::to_string(nodeCount);
+
+    ofs<< "\t" << currentLabel<<"[label=\""<< node->contact.firstName<< "\\n"
+    << node->contact.lastName << "\\n" 
+    << node->contact.phoneNumber<< "\\nCount: "
+    << node->count<< "\"];" << std::endl;
+
+
+
+    nodeCount++;
+}
+
+
+if (!parentLabel.empty()){
+    ofs <<"\t"<<parentLabel << "-> " <<currentLabel << ";" << std::endl;
+}
+
+
+for(const auto&entry:node->children){
+    char ch=entry.first;
+    TrieNode* child=entry.second;
+    std::string childPrefix=parentLabel.empty()? std::string(1,ch):parentLabel +std::string(1,ch);
+    generateDotFileHelper(child,ofs,currentLabel);
+}
+
 }
  public:
     Trie();

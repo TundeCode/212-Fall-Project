@@ -3,6 +3,7 @@
 // constructor 
 Trie::Trie() {
         root = new TrieNode();
+       
     }
 
 // destructor
@@ -81,8 +82,14 @@ void Trie::displayContacts(const std::string& prefix){
 
 
 std::ofstream ofs(filename);
-ofs << "digraph G {" << std::endl;
 
+if (!ofs){
+    std::cerr << "Error opening File: "<< filename<< std::endl;
+    return;
+}
+ofs << "digraph G {" << std::endl;
+ nodeCount=0;
+generateDotFileHelper(root,ofs);
 ofs << "}" << std:: endl;
 ofs.close();
     }

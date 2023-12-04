@@ -19,6 +19,8 @@ int main(int argc, char* argv[]) {
                 list.insert(firstName, lastName, phoneNumber);
             }
         }
+
+        list.generateDotFile("output_graph.dot");
         ifs.close();
     }
 
