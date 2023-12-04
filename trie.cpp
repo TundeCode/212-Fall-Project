@@ -77,6 +77,49 @@ void Trie::displayContacts(const std::string& prefix){
     displayContactsHelper(current,prefix);
 }
 
+// Private helper function to delete a contact from the Trie
+void Trie::deleteContactHelper(TrieNode* node, const std::string& contactName) {
+    if (contactName.empty()) {
+        return;
+    }
+
+
+    char ch = contactName[0];
+    auto it = node->children.find(ch);
+
+
+    if (it != node->children.end()) {
+        deleteContactHelper(it->second, contactName.substr(1));
+
+
+        // Remove the child node if it's not part of other contacts
+        if (it->second->count == 0 && it->second->children.empty()) {
+            delete it->second;
+            node->children.erase(it);
+        }
+    }
+}
+
+
+// Public function to delete a contact
+void Trie::deleteContact(const std::string& command) {
+    std::stringstream ss(command);
+
+
+    std::string deleteCmd, firstName, lastName;
+    ss >> deleteCmd >> firstName >> lastName;
+
+
+    if (deleteCmd == "delete") {
+        deleteContactHelper(root, firstName + " " + lastName);
+        contacts.erase(firstName + " " + lastName);
+    } else {
+        std::cout << "Invalid delete command" << std::endl;
+    }
+}
+
+
+
 
     void Trie::generateDotFile(const std::string& filename){
 
