@@ -3,26 +3,33 @@
 // constructor 
 Trie::Trie() {
         root = new TrieNode();
-       
     }
 
-// destructor
-Trie::~Trie(){}
-//release dynamically allocated memory
-void Trie::deleteNode(TrieNode* node){
-    for (auto& entry:node ->children){
-        deleteNode(entry.second);
-        entry.second=nullptr;
-    }
-    delete node;
+// Destructor
+Trie::~Trie() {
+    // Call deleteNode on the root to delete all nodes in the trie
+    deleteNode(root);
 }
+
+// release dynamically allocated memory
+void Trie::deleteNode(TrieNode* node){
+    if (node == nullptr) {
+        return; 
+    }
+    for (auto& entry: node->children){
+        deleteNode(entry.second); // Recursive call to delete child nodes
+        entry.second = nullptr;  
+    }
+    delete node; // Delete the current node
+}
+
 
 
 // insert 
 
 void Trie::insert(const std::string& firstName, const std::string& lastName, const std::string& phoneNumber){
       TrieNode* current=root;
-std::string Name= firstName+" " +lastName;
+std::string Name = firstName+" " +lastName;
       for(char ch : Name){
         if (current->children.find(ch)==current->children.end()){
             current->children[ch]=new TrieNode();
@@ -77,62 +84,13 @@ void Trie::displayContacts(const std::string& prefix){
     displayContactsHelper(current,prefix);
 }
 
-// Private helper function to delete a contact from the Trie
-void Trie::deleteContactHelper(TrieNode* node, const std::string& contactName) {
-    if (contactName.empty()) {
-        return;
-    }
-
-
-    char ch = contactName[0];
-    auto it = node->children.find(ch);
-
-
-    if (it != node->children.end()) {
-        deleteContactHelper(it->second, contactName.substr(1));
-
-
-        // Remove the child node if it's not part of other contacts
-        if (it->second->count == 0 && it->second->children.empty()) {
-            delete it->second;
-            node->children.erase(it);
-        }
-    }
-}
-
-
-// Public function to delete a contact
-void Trie::deleteContact(const std::string& command) {
-    std::stringstream ss(command);
-
-
-    std::string deleteCmd, firstName, lastName;
-    ss >> deleteCmd >> firstName >> lastName;
-
-
-    if (deleteCmd == "delete") {
-        deleteContactHelper(root, firstName + " " + lastName);
-        //contacts.erase(firstName + " " + lastName);
-    } else {
-        std::cout << "Invalid delete command" << std::endl;
-    }
-}
-
-
-
 
     void Trie::generateDotFile(const std::string& filename){
 
 
 std::ofstream ofs(filename);
-
-if (!ofs){
-    std::cerr << "Error opening File: "<< filename<< std::endl;
-    return;
-}
 ofs << "digraph G {" << std::endl;
- nodeCount=0;
-generateDotFileHelper(root,ofs);
+
 ofs << "}" << std:: endl;
 ofs.close();
     }
