@@ -47,6 +47,7 @@ TrieNode(){
 class Trie{
 private:
  TrieNode* root;
+     void deleteContactHelper(TrieNode* node, const std::string& contactName); 
 
    void displayContactsHelper(TrieNode* node, const std::string& prefix) {
 
@@ -82,6 +83,7 @@ private:
     void deleteNode(TrieNode* node);
     void generateDotFile(const std::string& filename);
     void displayContacts(const std::string& prefix);
+    void deleteContact(const std::string& command);
     void addContact();
 };
 
