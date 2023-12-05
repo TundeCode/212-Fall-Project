@@ -9,24 +9,22 @@ Ethan Moreta, Tunde Fakolujo, Marvens Sainterlien, Clinton Ijifisoye
 
 A trie is a multiway tree data structure used for storing strings over an alphabet. It is used to store alrge amount of strings. The pattern matching can be done efficiently using tries. The trie shows words like allot, alone, ant, and, are, bat, bad. The idea all strings shring common prefix should come from a common node. The tries are used in spell checking programs.
 
-### Dependencies
+### Contact List
 
-todo
+  * Download `Trie.cpp`, `test.txt`, and `main.cpp` from this repository
+  * Open your terminal and compile with G++ using `g++ Trie.cpp main.cpp -o trie`
 
-### Usage
+## Usage: 
+  `./trie test.txt` (Only one arguemnt which is the input test file) Outputs directly on the terminal
 
-todo
-
-### Links
-### Request Access so I can add you
-https://docs.google.com/document/d/1HocRcjlAmbrf1HJ1uC-Mum5ARt690aI8Xp_JsFwZ6HQ/edit?usp=sharing
-
-https://docs.google.com/presentation/d/1Qn201u60Z8YfK2d-t01gzrGH3Ze9VK7bGdjCbWLtI4w/edit?usp=sharing
+### Input File
+  * Download `test.txt` from this repository
+  * Open
 
 ### Work Split
 |Team Member|     Work Done      |
 |--|--|
-| E. Moreta |Contributed towards project report and code                 |
-| C. Ijifisoye |                 |
-| M. Sainterlien |contributed towards code |
-| B. Fakolujo |                  |
+| E. Moreta |Contributed towards project report and presentation|
+| C. Ijifisoye |Contributed towards the code and presentation slides|
+| M. Sainterlien |contributed towards code|
+| B. Fakolujo |contributed towards code|
