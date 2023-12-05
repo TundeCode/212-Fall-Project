@@ -29,6 +29,6 @@ from the test file. To search for the contact all you have to enter is the start
 |Team Member|     Work Done      |
 |--|--|
 | E. Moreta |Contributed towards project report and presentation|
-| C. Ijifisoye |Contributed towards the code and presentation slides|
+| C. Ijifisoye |Contributed towards the code, presentation slides and report|
 | M. Sainterlien |Contributed towards code and the report|
 | B. Fakolujo |Contributed towards code|
