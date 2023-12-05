@@ -1,88 +1,90 @@
-#include "trie.h"
+#ifndef TRIE_H
+#define TRIE_H
 
-// constructor 
-Trie::Trie() {
-        root = new TrieNode();
-    }
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <unordered_map>
+#include <string>
+#include <sstream>
+#include <ostream>
 
-// destructor
-Trie::~Trie(){}
-//release dynamically allocated memory
-void Trie::deleteNode(TrieNode* node){
-    for (auto& entry:node ->children){
-        deleteNode(entry.second);
-        entry.second=nullptr;
-    }
-    delete node;
+
+class contactInfo{
+public:
+std::string firstName;
+std::string lastName;
+std::string phoneNumber;
+
+contactInfo(){
+    firstName="";
+    lastName="";
+    phoneNumber="";
+}
+ contactInfo(const std::string& first, const std::string& last, const std::string& phone){
+    firstName=first;
+    lastName=last;
+    phoneNumber=phone;
+}
+};
+
+
+class TrieNode{
+public:
+int count;
+std::unordered_map<char, TrieNode*> children;
+contactInfo contact;
+
+TrieNode(){
+    count=0;
 }
 
-
-// insert 
-
-void Trie::insert(const std::string& firstName, const std::string& lastName, const std::string& phoneNumber){
-      TrieNode* current=root;
-std::string Name = firstName+" " +lastName;
-      for(char ch : Name){
-        if (current->children.find(ch)==current->children.end()){
-            current->children[ch]=new TrieNode();
-        }
-        current=current->children[ch];
-      }
-      current->count++;
-      current->contact=contactInfo(firstName,lastName,phoneNumber);
-      
-      
-}
-
-  void Trie::addContact() {
-        std::string firstName, lastName, phoneNumber;
-
-        std::cout << "Enter first name: ";
-        std::cin >> firstName;
-
-        std::cout << "Enter last name: ";
-        std::cin >> lastName;
-
-        std::cout << "Enter phone number: ";
-        std::cin >> phoneNumber;
-
-        insert(firstName, lastName, phoneNumber);
-
-    if (!firstName.empty() && !lastName.empty()&& !phoneNumber.empty()){
-        std::cout << "Contact added successfully.\n";}
-        else{
-            std::cout << "Invalid input. Please provide all necessary information. \n";}
-        }
-    
-
-// display/search
-
-void Trie::displayContacts(const std::string& prefix){
-    TrieNode* current = root;
-    //count
+  
 
 
-    //pass the trie to node 
-    for(char ch:prefix){
-        if(current->children.find(ch) == current->children.end()){
-            std::cout<<"Contact Not Found" <<std::endl;
-            return;
-        }
-        current =current->children[ch];
-    }
+};
 
-    //SHows all contacts under The prefix example if  A Alex,Alejodro,Alan would appear
+class Trie{
+private:
+ TrieNode* root;
+
+   void displayContactsHelper(TrieNode* node, const std::string& prefix) {
+
    
-    displayContactsHelper(current,prefix);
-}
-
-
-    void Trie::generateDotFile(const std::string& filename){
-
-
-std::ofstream ofs(filename);
-ofs << "digraph G {" << std::endl;
-nodeCount=0;
-ofs << "}" << std:: endl;
-ofs.close();
+//SHows all contacts under The prefix example if  A Alex,Alejodro,Alan would appear
+    //show contaacts only if prefix matches
+    if (!prefix.empty()&& node->children.empty()) {
+        const contactInfo& contactInfo=node->contact;    
+        std::cout << contactInfo.firstName << " " <<  contactInfo.lastName<< std::endl;
+        std::cout << contactInfo.phoneNumber << std::endl;
+        std::cout<<"Count: " << node->count<<std::endl; //display count
+        std::cout << std::endl;
     }
+
+
+
+     
+
+    // Recursively display contacts for child nodes
+    for (const auto& entry : node->children) {
+        char ch = entry.first;
+        TrieNode* child = entry.second;
+        std::string childPrefix = prefix + ch;
+
+        displayContactsHelper(child, childPrefix);
+    }
+    
+}
+ public:
+    Trie();
+    ~Trie();
+    void insert(const std::string& firstName, const std::string& lastName, const std::string& phoneNumber);
+    void deleteNode(TrieNode* node);
+    void generateDotFile(const std::string& filename);
+    void displayContacts(const std::string& prefix);
+    bool deleteContact(const std::string& firstName, const std::string& lastName);
+    void addContact();
+};
+
+
+#endif // TRIE_H
