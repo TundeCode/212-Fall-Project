@@ -29,4 +29,4 @@ https://docs.google.com/presentation/d/1Qn201u60Z8YfK2d-t01gzrGH3Ze9VK7bGdjCbWLt
 | E. Moreta |Contributed towards project report and code                 |
 | C. Ijifisoye |                 |
 | M. Sainterlien |contributed towards code |
-| T. Fakolujo |                  |
+| B. Fakolujo |                  |
