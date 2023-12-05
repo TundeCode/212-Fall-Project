@@ -82,7 +82,7 @@ void Trie::displayContacts(const std::string& prefix){
 
 std::ofstream ofs(filename);
 ofs << "digraph G {" << std::endl;
-
+nodeCount=0;
 ofs << "}" << std:: endl;
 ofs.close();
     }
