@@ -15,16 +15,20 @@ A trie is a multiway tree data structure used for storing strings over an alphab
   * Open your terminal and compile with G++ using `g++ Trie.cpp main.cpp -o trie`
 
 ## Usage: 
-  `./trie test.txt` (Only one arguemnt which is the input test file) Outputs directly on the terminal
+  `./trie test.txt` Outputs directly on the terminal.
+  * This would be the contact list, this is filled with the names of the contacts you have
 
-### Input File
+### Test File
   * Download `test.txt` from this repository
-  * Open
+  * Open your terminal and run with G++ using `./trie test.txt`
+
+After this a prompt opens up and you can choose whether you want to add a contact or search up a contact 
+from the test file. To search for the contact all you have to enter is the start of their name and the contact pops up, if multiple people in the contact list have that same letter to begin with it prints out all of their names.
 
 ### Work Split
 |Team Member|     Work Done      |
 |--|--|
 | E. Moreta |Contributed towards project report and presentation|
 | C. Ijifisoye |Contributed towards the code and presentation slides|
-| M. Sainterlien |contributed towards code|
-| B. Fakolujo |contributed towards code|
+| M. Sainterlien |Contributed towards code and the report|
+| B. Fakolujo |Contributed towards code|
