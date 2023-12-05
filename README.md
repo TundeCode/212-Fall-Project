@@ -1,7 +1,7 @@
 # Trie
 URI CSC 212 Fall 2023 Term Project
 
-Group Members:
+### Group Members:
 Ethan Moreta, Tunde Fakolujo, Marvens Sainterlien, Clinton Ijifisoye
 
 
